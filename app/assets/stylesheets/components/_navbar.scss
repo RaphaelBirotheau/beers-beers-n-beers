@@ -1,7 +1,7 @@
 
 .navbar-lewagon {
   justify-content: space-between;
-  background: $base-red;
+  background: $base-blue;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,4 +14,9 @@
 
 .navbar-lewagon a {
   color: white;
+}
+
+.fa-glass-cheers {
+ font-size: 48px;
+ color: $base-yellow;
 }

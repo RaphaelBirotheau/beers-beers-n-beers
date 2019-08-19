@@ -1,22 +1,27 @@
 class ReviewsController < ApplicationController
-  def show
-  end
-
   def index
-  end
+      @reviews = Review.all
+    end
 
-  def edit
-  end
+    def show
+      @review = Review.find(params[:id])
+    end
 
-  def update
-  end
+    def new
+      @review = Review.new
+    end
 
-  def destroy
-  end
+    def create
+      @review = Review.new(dose_params)
+      @review.save
+    end
 
-  def create
-  end
+    def destroy
+      @review = Review.find(params[:id])
+      @review.destroy
+    end
 
-  def new
-  end
+      def dose_params
+      params.require(:review).permit(:content, :rating)
+    end
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+ resources :users
  resources :aperos
   devise_for :users
   root to: 'pages#home'

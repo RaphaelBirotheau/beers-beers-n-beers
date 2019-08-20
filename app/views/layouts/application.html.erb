@@ -12,7 +12,9 @@
   </head>
   <body>
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-    <i class="fa-spin">🍻</i>
+      <%= link_to root_path, class: "fa-spin" do %>
+        <i>🍻</i>
+      <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -21,10 +23,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link text-white" href="#">Apéros réservés</a>
+        <%= link_to user_session_path, class: "nav-link text-white" do %>
+        <p>Connexion</p>
+        <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">Profil</a>
+        <%= link_to new_user_registration_path, class: "nav-link text-white" do %>
+        <p>Inscription</p>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to new_apero_path, class: "nav-link text-white" do %>
+        <p>Ajouter un apéro !</p>
+        <% end %>
       </li>
       <li class="nav-item dropdown text-black">
         <%= image_tag('gerard.png', class:"avatar dropdown-toggle", id:'navbarDropdown', data: { toggle: "dropdown"}, aria: { expanded: false, haspopup: true}) %>

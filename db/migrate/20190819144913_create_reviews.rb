@@ -5,7 +5,6 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.numeric :rating
       t.references :user, foreign_key: true
       t.references :apero, foreign_key: true
-
       t.timestamps
     end
   end

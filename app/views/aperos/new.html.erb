@@ -1,2 +1,58 @@
-<h1>Aperos#new</h1>
-<p>Find me in app/views/aperos/new.html.erb</p>
+<div class="container m-5 mx-auto">
+    <h1 class="">Crée ta pochtronnade</h1>
+<frailorm>
+  <div class="form-group row">
+    <label for="inputTitle" class="col-sm-2 col-form-label">Titre</label>
+    <div class="col-sm-10">
+      <input type="title" class="form-control" id="inputTitle" placeholder="Titre">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputPlace" class="col-sm-2 col-form-label">Lieu</label>
+    <div class="col-sm-10">
+      <input type="place" class="form-control" id="inputPlace" placeholder="Lieu">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
+    <div class="col-sm-10">
+      <input type="date" class="form-control" id="inputDate" placeholder="Date">
+    </div>
+  </div>
+
+  <div class="form-group row">
+      <label for="inputCapacité" class="col-sm-2 col-form-label">Capacité</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="inputCapacity" placeholder="Capacité">
+      </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+      <input type="description" class="form-control" id="inputDescription" placeholder="Description">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Ambiance</label>
+    <div class="form-group col-sm-10">
+    <select class="form-control" id="inputAmbiance">
+      <% Apero::AMBIANCES.each do |ambiance|%>
+        <option><%= ambiance %></option>
+      <% end %>
+    </select>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">C'est parti mon kiki !</button>
+    </div>
+  </div>
+
+</form>
+</div>
+

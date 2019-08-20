@@ -1,5 +1,5 @@
-<div class="container m-5 mx-auto">
-    <h1 class="">Crée ta pochtronnade</h1>
+<div class="offset-2 col-8">
+    <h2 class="mt-5 mb-5 text-center" style="color: $base_blue">🍸 Crée ta pochtronnade 🍸</h2>
 
   <%= simple_form_for(@apero) do |f| %>
   <div class="form-group row">
@@ -43,20 +43,9 @@
     <%= f.input :ambiance, collection: Apero::AMBIANCES, class: 'form-control', id: 'inputAmbiance', label: false %>
     </div>
   </div>
-
-  <div class="form-group row">
-    <label for="inputPicture" class="col-sm-2 col-form-label">Photo</label>
-    <div class="col-sm-10">
-      <%= f.input :photo %>
-      <%= f.input :photo_cache, as: :hidden %>
+    <div class="form-actions text-center mt-4">
+      <%= f.submit "C'est parti mon kiki !", class: 'btn btn-primary' %>
     </div>
-  </div>
-
-  <div class="form-group row">
-    <div class="col-sm-10">
-      <%= f.submit "C'est parti !", class: 'btn btn-primary' %>
-    </div>
-  </div>
   <% end %>
 </div>
 

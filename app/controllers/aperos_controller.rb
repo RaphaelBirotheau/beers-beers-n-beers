@@ -14,7 +14,7 @@ class AperosController < ApplicationController
 
   def create
     @apero = Apero.new(apero_params)
-    @apero.save
+    @apero.save!
     redirect_to apero_path(@apero)
   end
 
@@ -23,9 +23,9 @@ class AperosController < ApplicationController
   end
 
   def update
-    if Apero.user == current_user
-      @apero = Apero.find(params[:id])
-      @Apero.update(apero_params)
+    @apero = Apero.find(params[:id])
+    if @apero.user == current_user
+      @apero.update(apero_params)
       redirect_to apero_path(@apero)
     else
       flash[:alert] = "You are not authorized to perform this action."
@@ -33,7 +33,8 @@ class AperosController < ApplicationController
   end
 
   def destroy
-    if Apero.user == current_user
+    @apero = Apero.find(params[:id])
+    if @apero.user == current_user
       @restaurant.destroy
     else
       flash[:alert] = "You are not authorized to perform this action."

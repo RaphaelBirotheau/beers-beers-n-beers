@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_091040) do
+ActiveRecord::Schema.define(version: 2019_08_20_133530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "aperos", force: :cascade do |t|
-    t.string "date"
     t.string "description"
     t.string "place"
     t.bigint "user_id"
@@ -26,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_08_20_091040) do
     t.string "ambiance"
     t.string "title"
     t.decimal "capacity"
+    t.datetime "date"
     t.index ["user_id"], name: "index_aperos_on_user_id"
   end
 

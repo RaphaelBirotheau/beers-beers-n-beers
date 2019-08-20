@@ -23,15 +23,19 @@
   color: white;
 }
 
-
 .container-home {
   padding: 16px;
-  width: 1000px;
+  width: 532px;
   margin: auto;
   margin-top: 16px;
-  background-color: #dd785f;
+  background-color: #4b5d78;
+  border-radius: 5px;
+}
+
+.container-home :hover{
+  opacity: 0.95;
 }
 
 body {
-  background-color: $base-red;
+  background-color: rgb(240, 240, 240);
 }

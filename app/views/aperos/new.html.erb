@@ -40,14 +40,9 @@
   <div class="form-group row">
     <label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Ambiance</label>
     <div class="form-group col-sm-10">
-    <select class="form-control" id="inputAmbiance">
-      <% Apero::AMBIANCES.each do |ambiance|%>
-        <option><%= ambiance %></option>
-      <% end %>
-    </select>
+    <%= f.input :ambiance, collection: Apero::AMBIANCES, class: 'form-control', id: 'inputAmbiance', label: false %>
     </div>
   </div>
-
     <div class="form-actions text-center mt-4">
       <%= f.submit "C'est parti mon kiki !", class: 'btn btn-primary' %>
     </div>

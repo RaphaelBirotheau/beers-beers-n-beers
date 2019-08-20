@@ -1,6 +1,6 @@
-
 .navbar-lewagon {
   justify-content: space-between;
+
   background: $base-blue;
 }
 
@@ -13,10 +13,22 @@
 }
 
 .navbar-lewagon a {
+  color: black;
+}
+
+.fa-spin {
+ font-size: 40px;
+ margin-left: 20px;
+}
+
+.nav-links {
   color: white;
 }
 
-.fa-glass-cheers {
- font-size: 48px;
- color: $base-yellow;
+.fa-spin {
+  font-size: 40px;
+  margin-left: 10px;
 }
+
+.nav-item {
+

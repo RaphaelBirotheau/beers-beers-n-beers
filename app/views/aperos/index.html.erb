@@ -1,2 +1,24 @@
-<h1>Aperos#index</h1>
-<p>Find me in app/views/aperos/index.html.erb</p>
+<div class="banner" style="background-image: url(https://asialyst.com/fr/wp-content/uploads/2016/02/FRANCE-BAR-TABAC.jpg)">
+  <div class="container" >
+    <h3>quand y'en a plus,y'en a encore</h3>
+    <h1>Trouver des apéros pas loin</h1>
+    <p></p>
+  </div>
+</div>
+
+
+<% @aperos.each do |apero| %>
+  <div class="card-apero">
+    <!-- mettre ici le code Ruby pour import des images par apéro -->
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-apero-infos">
+      <h2><%= apero.name %></h2>
+      <p><%= apero.description %></p>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+

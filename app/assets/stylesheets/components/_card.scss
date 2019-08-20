@@ -1,15 +1,16 @@
 .card-apero {
   overflow: hidden;
-  height: 120px;
+  height: 160px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 3px;
 }
 
 .card-apero img {
   height: 100%;
-  width: 120px;
+  width: 160px;
   object-fit: cover;
 }
 
@@ -30,3 +31,8 @@
 .card-apero .card-apero-infos {
   padding: 16px;
 }
+
+.card a:link {
+  text-decoration: none;
+}
+

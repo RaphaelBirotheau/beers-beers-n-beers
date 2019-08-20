@@ -44,18 +44,19 @@
         <%= link_to new_user_registration_path, class: "nav-link text-white" do %>
         <p>Inscription</p>
         <% end %>
+      </li>
               <li class="nav-item">
         <%= link_to new_apero_path, class: "nav-link text-white" do %>
         <p>Ajouter un apéro !</p>
         <% end %>
+      </li>
         <li class="nav-item active">
         <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-danger" do %>
         <p>Décuvage</p>
         <% end %>
+      </li>
     <% end %>
-      </li>
-      </li>
-      </li>
+
       <li class="nav-item dropdown text-black">
         <%= image_tag('gerard.png', class:"avatar dropdown-toggle", id:'navbarDropdown', data: { toggle: "dropdown"}, aria: { expanded: false, haspopup: true}) %>
 

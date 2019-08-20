@@ -1,7 +1,13 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  height: 400px;
+  vertical-align: center;
+}
+
+.banner .container {
+  position: relative;
+  top:100px;
 }
 
 .banner h1 {
@@ -25,11 +31,9 @@
 
 .container-home {
   padding: 16px;
-  width: 532px;
-  margin: auto;
+  margin: 0 auto;
   margin-top: 16px;
-  background-color: #4b5d78;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .container-home :hover{

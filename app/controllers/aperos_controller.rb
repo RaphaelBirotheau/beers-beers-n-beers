@@ -17,7 +17,9 @@ class AperosController < ApplicationController
     @apero.user = current_user
     if @apero.save
       redirect_to apero_path(@apero)
-    else render :new
+    else
+      render :new
+
     end
   end
 

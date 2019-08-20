@@ -1,7 +1,7 @@
 
     <div class="banner" style="background-image: url(http://promenade.temporelle.free.fr/dotclear/public/images/michele_2/centre_Pompidou_bis/nouveau_quartier/IMGP0146.JPG)">
       <div class="container" >
-        <h3><%= @apero.date %></h3>
+        <h3><%=l(@apero.date, format: ' %A %e %b, à %kh%M')%></h3>
         <h1>Apéro de <%= @apero.user.first_name %> !</h1>
         <p><%= @apero.place %></p>
       </div>
@@ -24,7 +24,7 @@
         <div class="row">
           <div class="col-md-10">
             <h3>Date</h3>
-            <p>L'apéro aura lieu le <%= @apero.date.strftime(' %A %e %b, à %lh%M') %><p>
+            <p>L'apéro aura lieu le <%= l(@apero.date, format: ' %A %e %b, à %kh%M') %><p>
             <p><a href="http://estcequecestbientotlapero.fr/" target="_blank">Est-ce que c'est l'heure de l'apéro ?</a></p>
           </div>
         </div>

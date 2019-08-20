@@ -6,19 +6,20 @@
   </div>
 </div>
 
-
-<% @aperos.each do |apero| %>
-  <div class="card-apero">
-    <!-- mettre ici le code Ruby pour import des images par apéro -->
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-    <div class="card-apero-infos">
-      <h2><%= apero.name %></h2>
-      <p><%= apero.description %></p>
+<div class="offset-3 col-6">
+  <% @aperos.each do |apero| %>
+  <%= link_to apero_path(apero) do %>
+    <div class="card-apero mt-3" <% link_to "apero_path(@apero)" %>>
+      <!-- mettre ici le code Ruby pour import des images par apéro -->
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-apero-infos">
+        <h1><%= apero.title %></h1>
+        <h2>Ambiance :<%= apero.ambiance %></h2>
+        <p><strong>participants prévus (à la louche) : </strong><%= apero.capacity %></p>
+        <p><%= apero.description %></p>
+      </div>
     </div>
-  </div>
-<% end %>
-
-
-
-
+    <% end %>
+  <% end %>
+</div>
 

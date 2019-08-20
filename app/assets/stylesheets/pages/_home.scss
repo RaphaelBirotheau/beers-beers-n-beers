@@ -58,6 +58,10 @@ body {
   background-color: rgb(240, 240, 240);
 }
 
+h1,h2,h3 {
+  color: $base-blue;
+}
+
 .full-page {
   min-height: calc(100vh - 126px);
 }

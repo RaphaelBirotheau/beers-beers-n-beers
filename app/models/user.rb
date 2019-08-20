@@ -8,6 +8,6 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :last_name, :first_name, :password, presence: true
+  validates :password, presence: true
   validates :email, presence: true, uniqueness: true
 end

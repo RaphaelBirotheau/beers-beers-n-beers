@@ -1,7 +1,6 @@
-
 .navbar-lewagon {
   justify-content: space-between;
-  background: $base-blue;
+  background: #23395b;
   padding: 15px 10px;
 }
 
@@ -14,10 +13,14 @@
 }
 
 .navbar-lewagon a {
-  color: white;
+  color: black;
 }
 
 .fa-glass-cheers {
  font-size: 48px;
  color: #E88004;
+}
+
+.nav-links {
+  color: white;
 }

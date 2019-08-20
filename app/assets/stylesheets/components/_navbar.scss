@@ -2,7 +2,7 @@
   justify-content: space-between;
   border-radius: 0px !important;
   background: $base-blue;
-  padding-bottom: 10px !important;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -22,8 +22,10 @@
  margin-left: 20px;
 }
 
-.nav-links {
-  color: white;
+.nav-link {
+    p {
+    margin-bottom: 0px;
+  }
 }
 
 .fa-spin {

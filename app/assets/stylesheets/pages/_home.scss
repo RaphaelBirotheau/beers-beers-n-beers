@@ -39,3 +39,7 @@
 body {
   background-color: rgb(240, 240, 240);
 }
+
+.full-page {
+  min-height: calc(100vh - 126px);
+}

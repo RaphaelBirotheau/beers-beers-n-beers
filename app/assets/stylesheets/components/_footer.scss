@@ -1,5 +1,5 @@
 .footer {
-  background: #23395b;
+  background: $base-blue;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,7 +25,7 @@
   color: #D23333;
 }
 
-.footer-copyright {
+.footer p {
   color: white;
 }
 

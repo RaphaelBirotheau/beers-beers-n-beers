@@ -14,8 +14,11 @@ class AperosController < ApplicationController
 
   def create
     @apero = Apero.new(apero_params)
-    @apero.save!
-    redirect_to apero_path(@apero)
+    @apero.user = current_user
+    if @apero.save
+      redirect_to apero_path(@apero)
+    else render :new
+    end
   end
 
   def edit

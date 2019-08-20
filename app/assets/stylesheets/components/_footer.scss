@@ -1,5 +1,5 @@
 .footer {
-  background: #23395b;
+  background: $base-blue;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,4 +23,7 @@
 }
 .footer .fa-heart {
   color: #D23333;
+}
+.footer p {
+  color: white;
 }

@@ -24,7 +24,7 @@
         <div class="row">
           <div class="col-md-10">
             <h3>Date</h3>
-            <p>L'apéro aura lieu le <%= @apero.date %><p>
+            <p>L'apéro aura lieu le <%= @apero.date.strftime(' %A %e %b, à %lh%M') %><p>
             <p><a href="http://estcequecestbientotlapero.fr/" target="_blank">Est-ce que c'est l'heure de l'apéro ?</a></p>
           </div>
         </div>

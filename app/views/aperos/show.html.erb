@@ -1,36 +1,36 @@
 
     <div class="banner" style="background-image: url(http://promenade.temporelle.free.fr/dotclear/public/images/michele_2/centre_Pompidou_bis/nouveau_quartier/IMGP0146.JPG)">
       <div class="container" >
-        <h3>Le 25 août</h3>
-        <h1>Apéro de Paulo !</h1>
-        <p>Au terrain vague à côté de la station d'épu' :)</p>
+        <h3><%= @apero.date %></h3>
+        <h1>Apéro de <%= @apero.user.first_name %> !</h1>
+        <p><%= @apero.place %></p>
       </div>
     </div>
 
       <div class="container-desc">
         <div class="rows">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-10">
             <h3>Lieu de l'apéro</h3>
-            <p>From apartments and rooms to treehouses and boats: stay in unique spaces in 192 countries.</p>
+            <p><%= @apero.place %></p>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
-            <h3>Lieu de l'apéro</h3>
-            <p>From apartments and rooms to treehouses and boats: stay in unique spaces in 192 countries.</p>
+          <div class="col-md-10">
+            <h3>Description de l'apéro</h3>
+            <p><%= @apero.description %></p>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
-            <h3>Autre truc</h3>
-            <p>From apartments and rooms to treehouses and boats: stay in unique spaces in 192 countries.</p>
-            <p><a href="#">See how to travel on Airbnb</a></p>
+          <div class="col-md-10">
+            <h3>Date</h3>
+            <p>L'apéro aura lieu le <%= @apero.date %><p>
+            <p><a href="http://estcequecestbientotlapero.fr/" target="_blank">Est-ce que c'est l'heure de l'apéro ?</a></p>
           </div>
         </div>
       </div>
 
-        <div class="col-md-8">
+        <div class="col-md-6">
         <div class="card mb-6 sticky-top" style="max-width: 680px;">
           <div class="row no-gutters">
             <div class="col-md-4">
@@ -38,8 +38,8 @@
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">Hôte de l'apéro</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <h5 class="card-title"><%= @apero.user.first_name %> <%= @apero.user.last_name %>, l'hôte de l'apéro</h5>
+                <p class="card-text">Là dedans faut qu'on mette des trucs</p>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
               </div>
             </div>

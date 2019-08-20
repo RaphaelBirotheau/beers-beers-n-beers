@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #23395b;
+
+  background: $base-blue;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -24,6 +25,10 @@
   color: white;
 }
 
-.navbar-collapse {
-  margin-right: 10px;
+.fa-spin {
+  font-size: 40px;
+  margin-left: 10px;
 }
+
+.nav-item {
+

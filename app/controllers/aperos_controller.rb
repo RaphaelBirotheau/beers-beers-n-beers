@@ -22,7 +22,7 @@ class AperosController < ApplicationController
   private
 
   def apero_params
-    params.require(:apero).permit(:date, :description, :place, :rating)
+    params.require(:apero).permit(:date, :description, :place)
   end
 
   def set_apero

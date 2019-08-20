@@ -25,39 +25,39 @@
 
       <li class="nav-item active">
         <% if user_signed_in? %>
-      <li class="nav-item">
-        <%= link_to new_apero_path, class: "nav-link text-white" do %>
-        <p>Ajouter un apéro !</p>
-        <% end %>
-      </li>
-        <li class="nav-item active">
-        <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-danger" do %>
-        <p>Décuvage</p>
-        <% end %>
-      </li>
-        <% else %>
+          <li class="nav-item">
+            <%= link_to new_apero_path, class: "nav-link text-white" do %>
+              <p>Ajouter un apéro !</p>
+            <% end %>
+            <li class="nav-item active">
+            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-danger" do %>
+              <p>Décuvage</p>
+            <% end %>
 
-        <li class="nav-item active">
-        <%= link_to user_session_path, class: "nav-link text-white" do %>
-        <p>Connexion</p>
+          <% else %>
+
+            <li class="nav-item active">
+            <%= link_to user_session_path, class: "nav-link text-white" do %>
+              <p>Connexion</p>
+            <% end %>
+            </li>
+          <li class="nav-item">
+            <%= link_to new_user_registration_path, class: "nav-link text-white" do %>
+            <p>Inscription</p>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_apero_path, class: "nav-link text-white" do %>
+            <p>Ajouter un apéro !</p>
+            <% end %>
+          </li>
+            <li class="nav-item active">
+            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-danger" do %>
+            <p>Décuvage</p>
+            <% end %>
+          </li>
+
         <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to new_user_registration_path, class: "nav-link text-white" do %>
-        <p>Inscription</p>
-        <% end %>
-      </li>
-              <li class="nav-item">
-        <%= link_to new_apero_path, class: "nav-link text-white" do %>
-        <p>Ajouter un apéro !</p>
-        <% end %>
-      </li>
-        <li class="nav-item active">
-        <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-danger" do %>
-        <p>Décuvage</p>
-        <% end %>
-      </li>
-    <% end %>
 
       <li class="nav-item dropdown text-black">
         <%= image_tag('gerard.png', class:"avatar dropdown-toggle", id:'navbarDropdown', data: { toggle: "dropdown"}, aria: { expanded: false, haspopup: true}) %>

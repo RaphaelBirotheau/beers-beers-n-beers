@@ -2,7 +2,9 @@
   justify-content: space-between;
   border-radius: 0px !important;
   background: $base-blue;
-
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -31,4 +33,10 @@
 .fa-spin {
   font-size: 40px;
   margin-left: 10px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }

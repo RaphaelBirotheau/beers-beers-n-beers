@@ -13,3 +13,21 @@ img {
 }
 }
 
+@media(max-width: 992px) {
+  .carousel {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .carousel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 480px) {
+  .carousel {
+    width: 250px;
+    height: 150px;
+  }
+}

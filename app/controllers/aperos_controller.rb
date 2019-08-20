@@ -1,5 +1,4 @@
 class AperosController < ApplicationController
-
   def index
     @aperos = Apero.all
   end

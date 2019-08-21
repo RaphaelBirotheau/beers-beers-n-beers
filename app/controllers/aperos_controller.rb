@@ -1,6 +1,14 @@
 class AperosController < ApplicationController
   def index
-    @aperos = Apero.all
+    @aperos = Apero.geocoded
+
+    @markers = @aperos.map do |apero|
+      {
+        lat: apero.latitude,
+        lng: apero.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { apero: apero })
+      }
+    end
   end
 
   def show

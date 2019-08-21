@@ -5,5 +5,5 @@ class Apero < ApplicationRecord
   has_many :bookings
 
   mount_uploader :photo, PhotoUploader
-  AMBIANCES = ["Ricard", "Dégustation", "Match de foot", "290 Bacth Mode", "YOLO"]
+  AMBIANCES = ["Ricard", "Binouse", "Dégustation", "Match de foot", "290 Batch Mode", "YOLO", "Vomito"]
 end

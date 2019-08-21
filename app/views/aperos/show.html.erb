@@ -1,5 +1,5 @@
 
-    <div class="banner" style="background-image: url(http://promenade.temporelle.free.fr/dotclear/public/images/michele_2/centre_Pompidou_bis/nouveau_quartier/IMGP0146.JPG)">
+    <div class="banner" style="background-image: url(<%= @apero.photo %>)">
       <div class="container" >
         <h1><%= @apero.title %> !</h1>
         <h3><%=l(@apero.date, format: ' %A %e %b, à %kh%M')%></h3>

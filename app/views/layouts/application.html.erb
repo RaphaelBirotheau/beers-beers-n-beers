@@ -61,7 +61,9 @@
         <% end %>
 
       <li class="nav-item dropdown text-black">
-        <%= image_tag('gerard.png', class:"avatar dropdown-toggle", id:'navbarDropdown', data: { toggle: "dropdown"}, aria: { expanded: false, haspopup: true}) %>
+        <% if current_user %>
+        <%= cl_image_tag(current_user.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class:"avatar dropdown-toggle", id:'navbarDropdown', data: { toggle: "dropdown"}, aria: { expanded: false, haspopup: true}) %>
+        <% end %>
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Action</a>

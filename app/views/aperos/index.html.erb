@@ -10,7 +10,7 @@
   <div class="cards">
     <% @aperos.each do |apero| %>
     <%= link_to apero_path(apero) do %>
-      <div class="offset-3 col-12 card-apero mt-3" <% link_to "apero_path(@apero)" %>>
+      <div class="col-12 card-apero mt-3 mx-5" <% link_to "apero_path(@apero)" %>>
         <!-- mettre ici le code Ruby pour import des images par apéro -->
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
         <div class="card-apero-infos">
@@ -20,17 +20,16 @@
           <p><%= apero.description %></p>
         </div>
       </div>
-      <div class="#map">
-      </div>
       <% end %>
     <% end %>
   </div>
+  <div
+  id="map"
+  style="width: 50%;
+  height: 100vh;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 </div>
 
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+

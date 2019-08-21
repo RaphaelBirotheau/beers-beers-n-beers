@@ -6,19 +6,28 @@
   </div>
 </div>
 
-<div class="offset-3 col-6">
-  <% @bookings.each do |booking| %>
-  <%= link_to apero_path(booking.apero) do %>
-    <div class="card-apero mt-3" <% link_to "apero_path(@apero)" %>>
-      <!-- mettre ici le code Ruby pour import des images par apéro -->
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-apero-infos">
-        <h1><%= booking.apero.title %></h1>
-        <h2>Ambiance :<%= booking.apero.ambiance %></h2>
-        <p><strong>participants prévus (à la louche) : </strong><%= booking.apero.capacity %></p>
-        <p><%= booking.apero.description %></p>
+<div class="main-container">
+  <div class="cards">
+    <% @bookings.each do |booking| %>
+    <%= link_to apero_path(booking.apero) do %>
+      <div class="col-12 card-apero mt-3 mx-5" <% link_to "apero_path(@apero)" %>>
+        <!-- mettre ici le code Ruby pour import des images par apéro -->
+        <img src="<%= booking.apero.photo %>" />
+        <div class="card-apero-infos">
+          <h1><%= booking.apero.title %></h1>
+          <h2>Ambiance :<%= booking.apero.ambiance %></h2>
+          <p><strong>participants prévus (à la louche) : </strong><%= booking.apero.capacity %></p>
+          <p><%= booking.apero.description %></p>
+        </div>
       </div>
-    </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+  <div
+  id="map"
+  style="width: 50%;
+  height: 100vh;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 </div>

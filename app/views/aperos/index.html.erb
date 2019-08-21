@@ -1,26 +1,30 @@
-<div class="banner" style="background-image: url(https://asialyst.com/fr/wp-content/uploads/2016/02/FRANCE-BAR-TABAC.jpg)">
+<!-- <div class="banner" style="background-image: url(https://asialyst.com/fr/wp-content/uploads/2016/02/FRANCE-BAR-TABAC.jpg)">
   <div class="container" >
     <h3>quand y'en a plus,y'en a encore</h3>
     <h1>Trouver des apéros pas loin</h1>
     <p></p>
   </div>
-</div>
+</div> -->
 
-<div class="offset-3 col-6">
-  <% @aperos.each do |apero| %>
-  <%= link_to apero_path(apero) do %>
-    <div class="card-apero mt-3" <% link_to "apero_path(@apero)" %>>
-      <!-- mettre ici le code Ruby pour import des images par apéro -->
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-apero-infos">
-        <h1><%= apero.title %></h1>
-        <h2>Ambiance :<%= apero.ambiance %></h2>
-        <p><strong>participants prévus (à la louche) : </strong><%= apero.capacity %></p>
-        <p><%= apero.description %></p>
+<div class="main-container">
+  <div class="cards">
+    <% @aperos.each do |apero| %>
+    <%= link_to apero_path(apero) do %>
+      <div class="offset-3 col-12 card-apero mt-3" <% link_to "apero_path(@apero)" %>>
+        <!-- mettre ici le code Ruby pour import des images par apéro -->
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-apero-infos">
+          <h1><%= apero.title %></h1>
+          <h2>Ambiance :<%= apero.ambiance %></h2>
+          <p><strong>participants prévus (à la louche) : </strong><%= apero.capacity %></p>
+          <p><%= apero.description %></p>
+        </div>
       </div>
-    </div>
+      <div class="#map">
+      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
 
 <div

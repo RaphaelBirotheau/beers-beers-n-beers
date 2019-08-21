@@ -5,6 +5,7 @@
   position: sticky;
   top: 0;
   width: 100%;
+  z-index: 9999;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -22,6 +23,7 @@
 .fa-spin {
  font-size: 40px;
  margin-left: 20px;
+ text-decoration: none;
 }
 
 .nav-link {
@@ -30,10 +32,10 @@
   }
 }
 
-.fa-spin {
-  font-size: 40px;
-  margin-left: 10px;
-}
+// .fa-spin {
+//   font-size: 40px;
+//   margin-left: 10px;
+// }
 
 .sticky {
   position: fixed;

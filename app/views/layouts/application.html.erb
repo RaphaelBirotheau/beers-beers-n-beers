@@ -27,13 +27,20 @@
       <li class="nav-item active">
         <% if user_signed_in? %>
           <li class="nav-item">
+            <%= link_to my_bookings_path, class: "nav-link text-white" do %>
+              <p>Mes apéros !</p>
+            <% end %>
+          </li>
+          <li class="nav-item">
             <%= link_to new_apero_path, class: "nav-link text-white" do %>
               <p>Ajouter un apéro !</p>
             <% end %>
+          </li>
             <li class="nav-item active">
             <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-danger" do %>
               <p>Décuvage</p>
             <% end %>
+          </li>
 
           <% else %>
 

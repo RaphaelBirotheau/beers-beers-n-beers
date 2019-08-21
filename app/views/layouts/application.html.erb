@@ -17,12 +17,13 @@
         <i>🍻</i>
       <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
 
       <li class="nav-item active">
         <% if user_signed_in? %>
@@ -64,45 +65,39 @@
             <p>Décuvage</p>
             <% end %>
           </li>
-
-        <% end %>
+          <% end %>
 
       <li class="nav-item dropdown text-black">
         <% if current_user %>
         <%= cl_image_tag(current_user.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class:"avatar dropdown-toggle", id:'navbarDropdown', data: { toggle: "dropdown"}, aria: { expanded: false, haspopup: true}) %>
         <% end %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
 
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
+    <div class="full-page">
+        <%= yield %>
+    </div>
 
-<div class="full-page">
-
-    <%= yield %>
-
-</div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-<div class="footer">
-  <div class="footer-links">
-    <a href="https://github.com/zenoid/alcoholmap" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://www.instagram.com/drunkpeoplesvideos/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/jaimelabinche/" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://twitter.com/prefpolice"><i class="fab fa-twitter" target="_blank"></i></a>
-    <a href="https://www.linkedin.com/company/pernod-ricard/" target="_blank"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright text-white">
-
-    By la team soulard with love 🍻
-  </div>
-</div>
-
-
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+    <div class="footer">
+      <div class="footer-links">
+        <a href="https://github.com/zenoid/alcoholmap" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/drunkpeoplesvideos/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/jaimelabinche/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/prefpolice"><i class="fab fa-twitter" target="_blank"></i></a>
+        <a href="https://www.linkedin.com/company/pernod-ricard/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="footer-copyright text-white">
+        By la team soulard with love 🍻
+      </div>
+    </div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

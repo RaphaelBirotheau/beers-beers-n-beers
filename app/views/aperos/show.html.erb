@@ -1,9 +1,8 @@
 
     <div class="banner" style="background-image: url(http://promenade.temporelle.free.fr/dotclear/public/images/michele_2/centre_Pompidou_bis/nouveau_quartier/IMGP0146.JPG)">
       <div class="container" >
+        <h1><%= @apero.title %> !</h1>
         <h3><%=l(@apero.date, format: ' %A %e %b, à %kh%M')%></h3>
-        <h1>Apéro de <%= @apero.user.first_name %> !</h1>
-        <p><%= @apero.place %></p>
       </div>
     </div>
 
@@ -17,15 +16,20 @@
         </div>
         <div class="row">
           <div class="col-md-10">
-            <h3>Description de l'apéro</h3>
-            <p><%= @apero.description %></p>
+            <h3>Ambiance</h3>
+            <p><%= @apero.ambiance %></p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-10">
-            <h3>Date</h3>
-            <p>L'apéro aura lieu le <%= l(@apero.date, format: ' %A %e %b, à %kh%M') %><p>
-            <p><a href="http://estcequecestbientotlapero.fr/" target="_blank">Est-ce que c'est l'heure de l'apéro ?</a></p>
+            <h3>Description de l'apéro</h3>
+            <p><%= @apero.description %></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10">
+            <p><a href="http://estcequecestbientotlapero.fr/" target="_blank">Est-ce que c'est bientôt l'heure de l'apéro ?</a></p>
           </div>
         </div>
       </div>
@@ -38,12 +42,13 @@
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title"><%= @apero.user.first_name %> <%= @apero.user.last_name %>, l'hôte de l'apéro</h5>
-                <p class="card-text">Là dedans faut qu'on mette des trucs</p>
+                <h5 class="card-title"><%= @apero.user.first_name %>, pochtron en chef</h5>
+                <p class="card-text"></p>
                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
               </div>
             </div>
           </div>
         </div>
+        <%= link_to "Participer à l'apéro de #{@apero.user.first_name}", apero_bookings_path(@apero), method: :post, class: "btn btn-flat mt-5" %>
       </div>
       </div>

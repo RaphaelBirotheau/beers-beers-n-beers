@@ -14,19 +14,33 @@
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 36px;
   font-weight: bold;
 }
 
-.banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
+.banner h2 {
+  margin: 0;
+  color: rgba(235,235,235,0.8);
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 28px;
+  font-weight: bold;
 }
 
+
 .banner h3 {
-  color: white;
+  margin: 0;
+  color: rgba(235,235,235,0.8);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+.banner p {
+  font-size: 20px;
+  color: rgba(235,235,235,0.8);
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .container-home {
@@ -42,6 +56,10 @@
 
 body {
   background-color: rgb(240, 240, 240);
+}
+
+h1,h2,h3 {
+  color: $base-blue;
 }
 
 .full-page {

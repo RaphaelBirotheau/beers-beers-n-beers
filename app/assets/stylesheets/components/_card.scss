@@ -1,0 +1,38 @@
+.card-apero {
+  overflow: hidden;
+  height: 160px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.card-apero img {
+  height: 100%;
+  width: 160px;
+  object-fit: cover;
+}
+
+.card-apero h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-apero p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-apero .card-apero-infos {
+  padding: 16px;
+}
+
+.card a:link {
+  text-decoration: none;
+}
+

@@ -1,11 +1,24 @@
+.main-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
 .card-apero {
   overflow: hidden;
   height: 160px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
+  flex-grow: 1;
+  // align-items: center;
   border-radius: 3px;
+  // display: grid;
 }
 
 .card-apero img {
@@ -35,4 +48,5 @@
 .card a:link {
   text-decoration: none;
 }
+
 

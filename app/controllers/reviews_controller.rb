@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     end
 
     def create
-      @review = Review.new(dose_params)
+      @review = Review.new(review_params)
       @review.save
     end
 
@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
       @review.destroy
     end
 
-      def dose_params
+      def review_params
       params.require(:review).permit(:content, :rating)
     end
 end

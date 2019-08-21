@@ -1,0 +1,24 @@
+<div class="banner" style="background-image: url(https://images.unsplash.com/photo-1542634093-e0198d4d1e46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)">
+  <div class="container" >
+    <h3>On se prépare!</h3>
+    <h1>Mes apéros</h1>
+    <p></p>
+  </div>
+</div>
+
+<div class="offset-3 col-6">
+  <% @bookings.each do |booking| %>
+  <%= link_to apero_path(booking.apero) do %>
+    <div class="card-apero mt-3" <% link_to "apero_path(@apero)" %>>
+      <!-- mettre ici le code Ruby pour import des images par apéro -->
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-apero-infos">
+        <h1><%= booking.apero.title %></h1>
+        <h2>Ambiance :<%= booking.apero.ambiance %></h2>
+        <p><strong>participants prévus (à la louche) : </strong><%= booking.apero.capacity %></p>
+        <p><%= booking.apero.description %></p>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>

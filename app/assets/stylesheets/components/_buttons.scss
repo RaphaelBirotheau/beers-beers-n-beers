@@ -12,3 +12,17 @@
 .btn-ghost:hover {
   opacity: 1;
 }
+
+.btn-flat {
+  color: $light-gray;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $base-orange;
+  transition: background 0.3s ease;
+  width: 420px;
+}
+
+.btn-flat:hover {
+  background: #1BCB7F;
+  color: white;
+}

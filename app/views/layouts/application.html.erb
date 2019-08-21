@@ -8,7 +8,7 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <%= favicon_link_tag asset_path('logo-drink.png') %>
   </head>
   <body>
@@ -25,45 +25,52 @@
         <ul class="navbar-nav mr-auto">
 
 
-          <li class="nav-item active">
-            <% if user_signed_in? %>
-              <li class="nav-item">
-                <%= link_to new_apero_path, class: "nav-link text-white" do %>
-                  <p>Ajouter un apéro !</p>
-                <% end %>
-                <li class="nav-item active">
-                <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-danger" do %>
-                  <p>Décuvage</p>
-                <% end %>
-
-              <% else %>
-
-                <li class="nav-item active">
-                <%= link_to user_session_path, class: "nav-link text-white" do %>
-                  <p>Connexion</p>
-                <% end %>
-                </li>
-              <li class="nav-item">
-                <%= link_to new_user_registration_path, class: "nav-link text-white" do %>
-                <p>Inscription</p>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to new_apero_path, class: "nav-link text-white" do %>
-                <p>Ajouter un apéro !</p>
-                <% end %>
-              </li>
-                <li class="nav-item active">
-                <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-danger" do %>
-                <p>Décuvage</p>
-                <% end %>
-              </li>
-
+      <li class="nav-item active">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to my_bookings_path, class: "nav-link text-white" do %>
+              <p>Mes apéros !</p>
             <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_apero_path, class: "nav-link text-white" do %>
+              <p>Ajouter un apéro !</p>
+            <% end %>
+          </li>
+            <li class="nav-item active">
+            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-danger" do %>
+              <p>Décuvage</p>
+            <% end %>
+          </li>
 
-          <li class="nav-item dropdown text-black">
-            <%= image_tag('gerard.png', class:"avatar dropdown-toggle", id:'navbarDropdown', data: { toggle: "dropdown"}, aria: { expanded: false, haspopup: true}) %>
+          <% else %>
 
+            <li class="nav-item active">
+            <%= link_to user_session_path, class: "nav-link text-white" do %>
+              <p>Connexion</p>
+            <% end %>
+            </li>
+          <li class="nav-item">
+            <%= link_to new_user_registration_path, class: "nav-link text-white" do %>
+            <p>Inscription</p>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <%= link_to new_apero_path, class: "nav-link text-white" do %>
+            <p>Ajouter un apéro !</p>
+            <% end %>
+          </li>
+            <li class="nav-item active">
+            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-danger" do %>
+            <p>Décuvage</p>
+            <% end %>
+          </li>
+          <% end %>
+
+      <li class="nav-item dropdown text-black">
+        <% if current_user %>
+        <%= cl_image_tag(current_user.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class:"avatar dropdown-toggle", id:'navbarDropdown', data: { toggle: "dropdown"}, aria: { expanded: false, haspopup: true}) %>
+        <% end %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Action</a>
               <a class="dropdown-item" href="#">Another action</a>

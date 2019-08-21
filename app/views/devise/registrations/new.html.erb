@@ -28,6 +28,8 @@
                 label: "Confirmation de mot de passe",
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
   </div>
 
   <div class="form-actions text-center mt-5">

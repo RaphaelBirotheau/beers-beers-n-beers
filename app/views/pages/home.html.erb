@@ -1,11 +1,32 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://file1.telestar.fr/var/telestar/storage/images/2014/articles/news/gerard-depardieu-ivre-ne-peut-assister-au-festival-d-edimbourg-33113/251071-2-fre-FR/Gerard-Depardieu-ivre-ne-peut-assister-au-festival-d-Edimbourg_width1024.jpg);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(https://file1.telestar.fr/var/telestar/storage/images/2014/articles/news/gerard-depardieu-ivre-ne-peut-assister-au-festival-d-edimbourg-33113/251071-2-fre-FR/Gerard-Depardieu-ivre-ne-peut-assister-au-festival-d-Edimbourg_width1024.jpg);">
   <div class="container">
-    <h3>Bienvenue chez</h3>
-    <h1><strong>Pochtrons 🍻</strong></h1>
-    <p>Les meilleurs soulards du coin</p>
+      <h3>Bienvenue chez</h3>
+      <h1><strong>Pochtrons 🍻</strong></h1>
+      <p>Les meilleurs soulards du coin</p>
   </div>
 </div>
 
+<div class="cards-home">
+  <div class="card-category-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Rejoins des apéros
+  </div>
+
+  <div class="card-category-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+    Organise des apéros
+  </div>
+
+  <div class="card-category-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
+    Passe une bonne soirée !
+  </div>
+</div>
+
+  <div
+  id="map"
+  style="width: 100%;
+  height: 50vh;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
 <div class="container-home ">
 

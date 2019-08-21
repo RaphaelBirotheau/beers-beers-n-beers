@@ -26,3 +26,16 @@
   background: #1BCB7F;
   color: white;
 }
+
+.btn-flat-search {
+  color: $light-gray;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $base-orange;
+  transition: background 0.3s ease;
+}
+
+.btn-flat-search:hover {
+  background: #1BCB7F;
+  color: white;
+}

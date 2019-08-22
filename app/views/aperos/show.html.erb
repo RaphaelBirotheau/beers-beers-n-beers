@@ -56,7 +56,7 @@
           <%= link_to "Supprimer l'apéro", apero_path(@apero), class: "btn btn-outline-danger", method: :delete, data: { confirm: "T'es vraiment sûr de vouloir supprimer cette belle occasion?" } %>
           </div>
         <% else %>
-        <% if Booking.where(user: current_user, apero: @apero) %>
+        <% if Booking.where(user: current_user, apero: @apero).any? %>
             <p></p>
         <% elsif user_signed_in? %>
           <%= link_to "Participer à l'apéro de #{@apero.user.first_name}", apero_bookings_path(@apero), method: :post, class: "btn btn-flat mt-5" %>
@@ -70,7 +70,7 @@
         <div class="bookphotos">
           <% @apero.bookings.each do |booking| %>
           <div class="photo-user">
-            <%= cl_image_tag(booking.user.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class:"avatar", data: {toggle:"popover", content: booking.user.username, trigger: "hover"}, id:'navbarDropdown') %>
+            <%= cl_image_tag(booking.user.default_photo, width: 40, height: 40, crop: :thumb, gravity: :face, class:"avatar", data: {toggle:"popover", content: booking.user.username, trigger: "hover"}, id:'navbarDropdown') %>
              </div>
           <% end %>
         </div>

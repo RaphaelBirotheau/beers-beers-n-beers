@@ -1,0 +1,10 @@
+<div class="offset-3 col-6 text-center">
+<h1 class="mt-4 mb-4" style="color: $base_blue">Mon profile</h1>
+<%= cl_image_tag current_user.photo ,:width=>150, :height=>150, :gravity=>"face", :radius=>"max", :crop=>"fill", format: "PNG" %>
+<h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+<p>email: <%= current_user.email %></p>
+<p>location: <%= current_user.location %></p>
+<p>drinks: <%= current_user.drinks %></p>
+<p></p>
+<%= link_to "Modifier profle", edit_user_registration_path(current_user)  %>
+</div>

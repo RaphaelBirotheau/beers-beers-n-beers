@@ -49,6 +49,10 @@
             </div>
           </div>
         </div>
+        <% if user_signed_in?  %>
         <%= link_to "Participer à l'apéro de #{@apero.user.first_name}", apero_bookings_path(@apero), method: :post, class: "btn btn-flat mt-5" %>
+        <% else %>
+        <%= link_to "Inscris toi pour participer !", new_user_registration_path, class: "btn btn-flat mt-5" %>
+        <% end %>
       </div>
       </div>

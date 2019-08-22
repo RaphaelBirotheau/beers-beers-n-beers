@@ -10,24 +10,34 @@
                 required: true,
                 autofocus: true,
                 label: "Email",
-                input_html: { autocomplete: "email" }%>
+                input_html: { autocomplete: "email" },
+                placeholder: "gege@pochtron.club"%>
     <%= f.input :first_name,
                 required: true,
                 label: "Prénom",
-                input_html: { autocomplete: "first-name" }%>
+                input_html: { autocomplete: "first-name" },
+                placeholder: "Gérard"%>
     <%= f.input :last_name,
                 required: true,
                 label: "Nom",
-                input_html: { autocomplete: "last-name" }%>
+                input_html: { autocomplete: "last-name" },
+                placeholder: "Depardieu"%>
+    <%= f.input :username,
+                required: true,
+                label: "Pochtron blase",
+                input_html: { autocomplete: "last-name" },
+                placeholder: "Gégé"%>
     <%= f.input :password,
                 required: true,
-                label: "Mot de passe",
+                label: "Mot de passe (ou numéro de CB)",
                 hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password" },
+                placeholder: "******"%>
     <%= f.input :password_confirmation,
                 label: "Confirmation de mot de passe",
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password" },
+                placeholder: "******"%>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
   </div>

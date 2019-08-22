@@ -35,7 +35,8 @@ class AperosController < ApplicationController
 
   def show
     @apero = Apero.find(params[:id])
-    # @dose = Dose.new
+    @review = Review.new
+    @reviews = @apero.reviews
   end
 
   def new

@@ -10,19 +10,20 @@
         <div class="rows">
         <div class="row">
           <div class="col-md-10">
-            <h3>Lieu de l'apéro</h3>
+            <h4>Lieu de l'apéro</h4>
             <p><%= @apero.place %></p>
+            <p><a href="" data-toggle="modal" data-target="#exampleModalCenter">voir sur la map</a></p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-10">
-            <h3>Ambiance</h3>
+            <h4>Ambiance</h4>
             <p><%= @apero.ambiance %></p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-10">
-            <h3>Description de l'apéro</h3>
+            <h4>Description de l'apéro</h4>
             <p><%= @apero.description %></p>
           </div>
         </div>
@@ -44,7 +45,7 @@
               <div class="card-body">
                 <h5 class="card-title"><%= @apero.user.first_name %>, pochtron en chef</h5>
                 <p class="card-text"></p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text"><small class="text-muted"><%= Time.now  %> <%= @apero.updated_at %></small></p>
               </div>
             </div>
           </div>
@@ -58,4 +59,20 @@
         <%= link_to "Participer à l'apéro de #{@apero.user.first_name}", apero_bookings_path(@apero), method: :post, class: "btn btn-flat mt-5" %>
         <% end %>
       </div>
+      </div><!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div
+          id="map"
+          style="height: 50vh; width: 12000px; margin-left: 35px; padding-top: 30px; margin-bottom: 30px;"
+          data-markers="<%= @marker.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
+    </div>
+  </div>
+</div>

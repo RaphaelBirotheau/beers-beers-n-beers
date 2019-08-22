@@ -35,7 +35,8 @@ class AperosController < ApplicationController
 
   def show
     @apero = Apero.find(params[:id])
-    # @dose = Dose.new
+
+    @marker = [ { lat: @apero.latitude,lng: @apero.longitude } ]
   end
 
   def new

@@ -67,6 +67,10 @@
   grid-gap: 16px;
 }
 
+.pic-pochtron img {
+  width: 155px;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards-home {

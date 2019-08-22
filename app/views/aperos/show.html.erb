@@ -49,6 +49,13 @@
             </div>
           </div>
         </div>
+        <% if current_user == @apero.user %>
+        <div class="d-flex justify-content-between mt-3">
+        <%= link_to "Modifier l'apéro", edit_apero_path(@apero), class: "btn btn-outline-primary mr-5" %>
+        <%= link_to "Supprimer l'apéro", apero_path(@apero), class: "btn btn-outline-danger", method: :delete, data: { confirm: "T'es vraiment sûr de vouloir supprimer cette belle occasion?" } %>
+        </div>
+        <% else %>
         <%= link_to "Participer à l'apéro de #{@apero.user.first_name}", apero_bookings_path(@apero), method: :post, class: "btn btn-flat mt-5" %>
+        <% end %>
       </div>
       </div>

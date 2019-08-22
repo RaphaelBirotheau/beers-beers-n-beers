@@ -48,10 +48,11 @@ class AperosController < ApplicationController
   def destroy
     @apero = Apero.find(params[:id])
     if @apero.user == current_user
-      @restaurant.destroy
+      @apero.destroy
     else
       flash[:alert] = "You are not authorized to perform this action."
     end
+    redirect_to aperos_path
   end
 
   private

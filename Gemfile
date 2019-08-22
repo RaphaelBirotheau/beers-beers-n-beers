@@ -10,7 +10,6 @@ gem 'redis'
 gem 'rails-i18n'
 gem 'i18n-country-translations'
 gem 'carrierwave', '~> 1.2'
-gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.9.1'
 
 gem 'autoprefixer-rails'
@@ -23,7 +22,7 @@ gem 'devise'
 gem 'datetime_picker_input'
 gem 'geocoder'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-
+gem 'pg_search'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -11,20 +11,16 @@
 
         <div class="row">
           <div class="col-md-10">
-            <h3>Lieu de l'apéro</h3>
+            <h4>Lieu de l'apéro</h4>
             <p><%= @apero.place %></p>
+            <p><a href="" data-toggle="modal" data-target="#exampleModalCenter">voir sur la map</a></p>
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-10">
-            <h3>Ambiance</h3>
-            <p><%= @apero.ambiance %></p>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-md-10">
+
             <h3>Description de l'apéro</h3>
             <p><%= @apero.description %></p>
           </div>
@@ -41,14 +37,14 @@
         <div class="card mb-6" style="max-width: 680px;">
           <div class="row no-gutters">
             <div class="col-md-4">
-              <%= cl_image_tag @apero.user.photo, :width=>150, :height=>150, :crop=>"fill", class: "card-img" %>
+              <%= cl_image_tag @apero.user.default_photo, :width=>150, :height=>150, :crop=>"fill", gravity: "face", class: "card-img" %>
             </div>
 
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title"><%= @apero.user.first_name %>, pochtron en chef</h5>
                 <p class="card-text"></p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text"><small class="text-muted">Dernière mise à jour le <%= l(@apero.updated_at, format: '%A %e %b')  %></small></p>
               </div>
             </div>
           </div>
@@ -100,5 +96,20 @@
           </div>
         <% end  %>
       </div>
+      </div><!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div
+          id="map"
+          style="height: 50vh; width: 12000px; margin-left: 35px; padding-top: 30px; margin-bottom: 30px;"
+          data-markers="<%= @marker.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
+  </div>
+</div>

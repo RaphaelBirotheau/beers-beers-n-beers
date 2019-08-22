@@ -85,7 +85,7 @@ class AperosController < ApplicationController
   private
 
   def apero_params
-    params.require(:apero).permit(:date, :description, :place, :capacity, :title, :photo, :ambiance)
+    params.require(:apero).permit(:date, :description, :place, :capacity, :title, :photo)
   end
 
   def set_apero

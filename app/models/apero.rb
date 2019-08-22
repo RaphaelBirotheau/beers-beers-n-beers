@@ -5,7 +5,7 @@ class Apero < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :aperos_ambiances, dependent: :destroy
   has_many :ambiances, through: :aperos_ambiances
-
+  has_many :reviews, dependent: :destroy
   has_many :users, through: :bookings
   mount_uploader :photo, PhotoUploader
 

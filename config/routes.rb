@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :aperos do
     resources :bookings, only: [:create]
+    resources :reviews, only: [:create]
   end
 
 

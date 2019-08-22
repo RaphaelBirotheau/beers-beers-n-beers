@@ -1,27 +1,28 @@
 class ReviewsController < ApplicationController
-  def index
-      @reviews = Review.all
-    end
+  def show
+    @review = Review.find(params[:id])
+  end
 
-    def show
-      @review = Review.find(params[:id])
+  def create
+    @review = Review.new(review_params)
+    @review.user = current_user
+    @apero = Apero.find(params[:apero_id])
+    @review.apero = @apero
+    if @review.save!
+      redirect_to apero_path(@apero)
+    else
+      flash[:alert] = "Not saved"
     end
+  end
 
-    def new
-      @review = Review.new
-    end
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+  end
 
-    def create
-      @review = Review.new(review_params)
-      @review.save
-    end
+  private
 
-    def destroy
-      @review = Review.find(params[:id])
-      @review.destroy
-    end
-
-      def review_params
-      params.require(:review).permit(:content, :rating)
-    end
+  def review_params
+    params.require(:review).permit(:content, :rating)
+  end
 end

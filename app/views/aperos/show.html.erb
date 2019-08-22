@@ -8,6 +8,7 @@
 
       <div class="container-desc">
         <div class="rows">
+
         <div class="row">
           <div class="col-md-10">
             <h4>Lieu de l'apéro</h4>
@@ -15,12 +16,14 @@
             <p><a href="" data-toggle="modal" data-target="#exampleModalCenter">voir sur la map</a></p>
           </div>
         </div>
+
         <div class="row">
           <div class="col-md-10">
             <h4>Ambiance</h4>
             <p><%= @apero.ambiance %></p>
           </div>
         </div>
+
         <div class="row">
           <div class="col-md-10">
             <h4>Description de l'apéro</h4>
@@ -41,6 +44,7 @@
             <div class="col-md-4">
               <%= cl_image_tag @apero.user.default_photo, :width=>150, :height=>150, :crop=>"fill", gravity: "face", class: "card-img" %>
             </div>
+
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title"><%= @apero.user.first_name %>, pochtron en chef</h5>
@@ -50,14 +54,52 @@
             </div>
           </div>
         </div>
+
         <% if current_user == @apero.user %>
-        <div class="d-flex justify-content-between mt-3">
-        <%= link_to "Modifier l'apéro", edit_apero_path(@apero), class: "btn btn-outline-primary mr-5" %>
-        <%= link_to "Supprimer l'apéro", apero_path(@apero), class: "btn btn-outline-danger", method: :delete, data: { confirm: "T'es vraiment sûr de vouloir supprimer cette belle occasion?" } %>
-        </div>
+          <div class="d-flex justify-content-between mt-3">
+          <%= link_to "Modifier l'apéro", edit_apero_path(@apero), class: "btn btn-outline-primary mr-5" %>
+          <%= link_to "Supprimer l'apéro", apero_path(@apero), class: "btn btn-outline-danger", method: :delete, data: { confirm: "T'es vraiment sûr de vouloir supprimer cette belle occasion?" } %>            
+          </div>
         <% else %>
-        <%= link_to "Participer à l'apéro de #{@apero.user.first_name}", apero_bookings_path(@apero), method: :post, class: "btn btn-flat mt-5" %>
+        <% if Booking.where(user: current_user, apero: @apero) %>
+            <p></p>
+        <% elsif user_signed_in? %>
+          <%= link_to "Participer à l'apéro de #{@apero.user.first_name}", apero_bookings_path(@apero), method: :post, class: "btn btn-flat mt-5" %>
+        <% else %>
+          <%= link_to "Inscris toi pour participer !", new_user_registration_path, class: "btn btn-flat mt-5" %>
+         <% end %>
         <% end %>
+          <br>
+          <br>
+        <h4>Pochtrons inscrits :</h4>
+        <div class="bookphotos">
+          <% @apero.bookings.each do |booking| %>
+          <div class="photo-user">
+            <%= cl_image_tag(booking.user.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class:"avatar", data: {toggle:"popover", content: booking.user.username, trigger: "hover"}, id:'navbarDropdown') %>
+             </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+          </div>
+      </div>
+
+    <div class="container">
+      <% if Time.now > @apero.date %>
+      <div class="form-group row">
+        <label for="inputDescription" class="col-sm-2 col-form-label">Gueule de bois ??</label>
+      <div class="col-sm-10">
+        <%= simple_form_for [@apero, @review] do |f|%>
+          <%= f.input :content, class: 'form-control', id: 'inputContent', label: false, placeholder: 'Alors il était bien cet apéro ???' %>
+          <%= f.input :rating, class: 'form-control', id: 'inputContent', label: false, placeholder: 'Quelle note ?' %>
+          <%= f.submit 'Bouton', class: 'btn btn-primary' %>
+          <% end %>
+          <div class=''>
+          <% @reviews.each do |review| %>
+            <p> <%= @apero.user.first_name %> <br> Mon retour de gueule de bois : <%= review.content %> <br> Ma note : <%= review.rating.to_i %> <p>
+          <% end %>
+          </div>
+        <% end  %>
       </div>
       </div><!-- Button trigger modal -->
 
@@ -73,6 +115,7 @@
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
+
     </div>
   </div>
 </div>

@@ -65,7 +65,7 @@
         <div class="bookphotos">
           <% @apero.bookings.each do |booking| %>
           <div class="photo-user">
-            <%= cl_image_tag(booking.user.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class:"avatar dropdown-toggle", id:'navbarDropdown', data: { toggle: "dropdown"}, aria: { expanded: false, haspopup: true}) %>
+            <%= cl_image_tag(booking.user.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class:"avatar", data: {toggle:"popover", content: booking.user.username, trigger: "hover"}, id:'navbarDropdown') %>
             </div>
           <% end %>
         </div>

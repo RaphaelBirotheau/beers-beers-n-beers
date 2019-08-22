@@ -12,4 +12,12 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   mount_uploader :photo, PhotoUploader
+
+  def default_photo
+    if photo?
+      photo
+    else
+      "https://res.cloudinary.com/diumrfljk/image/upload/v1566486569/default_qp97dq.jpg"
+    end
+  end
 end

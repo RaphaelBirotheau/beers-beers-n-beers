@@ -39,13 +39,13 @@
         <div class="card mb-6 sticky-top" style="max-width: 680px;">
           <div class="row no-gutters">
             <div class="col-md-4">
-              <%= cl_image_tag @apero.user.photo, :width=>150, :height=>150, :crop=>"fill", class: "card-img" %>
+              <%= cl_image_tag @apero.user.default_photo, :width=>150, :height=>150, :crop=>"fill", gravity: "face", class: "card-img" %>
             </div>
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title"><%= @apero.user.first_name %>, pochtron en chef</h5>
                 <p class="card-text"></p>
-                <p class="card-text"><small class="text-muted"><%= Time.now  %> <%= @apero.updated_at %></small></p>
+                <p class="card-text"><small class="text-muted">Dernière mise à jour le <%= l(@apero.updated_at, format: '%A %e %b')  %></small></p>
               </div>
             </div>
           </div>

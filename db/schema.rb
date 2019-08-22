@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_091620) do
+ActiveRecord::Schema.define(version: 2019_08_22_145739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ambiances", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "apero_ambiances", force: :cascade do |t|
+    t.bigint "apero_id"
+    t.bigint "ambiance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ambiance_id"], name: "index_apero_ambiances_on_ambiance_id"
+    t.index ["apero_id"], name: "index_apero_ambiances_on_apero_id"
+  end
 
   create_table "aperos", force: :cascade do |t|
     t.string "description"
@@ -22,7 +37,6 @@ ActiveRecord::Schema.define(version: 2019_08_22_091620) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
-    t.string "ambiance"
     t.string "title"
     t.decimal "capacity"
     t.datetime "date"
@@ -69,6 +83,8 @@ ActiveRecord::Schema.define(version: 2019_08_22_091620) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "apero_ambiances", "ambiances"
+  add_foreign_key "apero_ambiances", "aperos"
   add_foreign_key "aperos", "users"
   add_foreign_key "bookings", "aperos"
   add_foreign_key "bookings", "users"

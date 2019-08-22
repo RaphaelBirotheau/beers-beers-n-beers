@@ -57,13 +57,29 @@
         <% if current_user == @apero.user %>
           <div class="d-flex justify-content-between mt-3">
           <%= link_to "Modifier l'apéro", edit_apero_path(@apero), class: "btn btn-outline-primary mr-5" %>
-          <%= link_to "Supprimer l'apéro", apero_path(@apero), class: "btn btn-outline-danger", method: :delete, data: { confirm: "T'es vraiment sûr de vouloir supprimer cette belle occasion?" } %>
+          <%= link_to "Supprimer l'apéro", apero_path(@apero), class: "btn btn-outline-danger", method: :delete, data: { confirm: "T'es vraiment sûr de vouloir supprimer cette belle occasion?" } %>            
           </div>
+        <% else %>
+        <% if Booking.where(user: current_user, apero: @apero) %>
+            <p></p>
         <% elsif user_signed_in? %>
           <%= link_to "Participer à l'apéro de #{@apero.user.first_name}", apero_bookings_path(@apero), method: :post, class: "btn btn-flat mt-5" %>
         <% else %>
           <%= link_to "Inscris toi pour participer !", new_user_registration_path, class: "btn btn-flat mt-5" %>
+         <% end %>
         <% end %>
+          <br>
+          <br>
+        <h4>Pochtrons inscrits :</h4>
+        <div class="bookphotos">
+          <% @apero.bookings.each do |booking| %>
+          <div class="photo-user">
+            <%= cl_image_tag(booking.user.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class:"avatar", data: {toggle:"popover", content: booking.user.username, trigger: "hover"}, id:'navbarDropdown') %>
+             </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
           </div>
       </div>
 
@@ -86,4 +102,3 @@
       </div>
       </div>
     </div>
-

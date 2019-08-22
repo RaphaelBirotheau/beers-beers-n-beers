@@ -54,8 +54,10 @@
         <%= link_to "Modifier l'apéro", edit_apero_path(@apero), class: "btn btn-outline-primary mr-5" %>
         <%= link_to "Supprimer l'apéro", apero_path(@apero), class: "btn btn-outline-danger", method: :delete, data: { confirm: "T'es vraiment sûr de vouloir supprimer cette belle occasion?" } %>
         </div>
+        <% elsif user_signed_in? %>
+          <%= link_to "Participer à l'apéro de #{@apero.user.first_name}", apero_bookings_path(@apero), method: :post, class: "btn btn-flat mt-5" %>
         <% else %>
-        <%= link_to "Participer à l'apéro de #{@apero.user.first_name}", apero_bookings_path(@apero), method: :post, class: "btn btn-flat mt-5" %>
+          <%= link_to "Inscris toi pour participer !", new_user_registration_path, class: "btn btn-flat mt-5" %>
         <% end %>
       </div>
       </div>

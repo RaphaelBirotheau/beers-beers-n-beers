@@ -15,8 +15,9 @@
         <img src="<%= apero.photo %>" />
         <div class="card-apero-infos">
           <h1><%= apero.title %></h1>
-          <p><strong>Date : <%= apero.date %></strong></p>
+          <h2><strong><%= l(apero.date, format: ' %A %e %b, à %kh%M') %></strong></h2>
           <p><%= apero.description %></p>
+          <small>organisé par <%= apero.user.first_name %></small>
         </div>
       </div>
       <% end %>

@@ -38,7 +38,7 @@
       </div>
 
         <div class="col-md-6">
-        <div class="card mb-6 sticky-top" style="max-width: 680px;">
+        <div class="card mb-6" style="max-width: 680px;">
           <div class="row no-gutters">
             <div class="col-md-4">
               <%= cl_image_tag @apero.user.photo, :width=>150, :height=>150, :crop=>"fill", class: "card-img" %>
@@ -57,7 +57,7 @@
         <% if current_user == @apero.user %>
           <div class="d-flex justify-content-between mt-3">
           <%= link_to "Modifier l'apéro", edit_apero_path(@apero), class: "btn btn-outline-primary mr-5" %>
-          <%= link_to "Supprimer l'apéro", apero_path(@apero), class: "btn btn-outline-danger", method: :delete, data: { confirm: "T'es vraiment sûr de vouloir supprimer cette belle occasion?" } %>            
+          <%= link_to "Supprimer l'apéro", apero_path(@apero), class: "btn btn-outline-danger", method: :delete, data: { confirm: "T'es vraiment sûr de vouloir supprimer cette belle occasion?" } %>
           </div>
         <% else %>
         <% if Booking.where(user: current_user, apero: @apero) %>

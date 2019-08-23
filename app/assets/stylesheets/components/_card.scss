@@ -9,6 +9,14 @@
   top: 0;
 }
 
+#username-review {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
 .card-apero {
   overflow: hidden;
   height: 160px;

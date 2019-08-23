@@ -20,7 +20,7 @@
 
 
     <div class="col">
-      <div class="card">
+      <div class="card pb-4">
         <div class="card-body d-flex justify-content-between">
           <div class="pic-pochtron">
             <%= cl_image_tag @apero.user.photo %>
@@ -63,34 +63,48 @@
   <% if Time.now > @apero.date %>
   <div class="row mt-5">
     <div class="col">
-      <h4>Alors t'as la gueule de bois ???</h4>
+      <h4>Gueule de bois</h4>
       <%= simple_form_for [@apero, @review] do |f|%>
       <%= f.input :content, class: 'form-control', id: 'inputContent', label: false, placeholder: "Tes rares souvenirs de l'apéro ?" %>
-      <%= f.input :rating, class: 'form-control', id: 'inputContent', label: false, placeholder: "Ton mal de crâne de 0 à l'infini ?" %>
+      <%= f.input :rating, class: 'form-control', id: 'inputContent', label: false, placeholder: "Evalue ton mal de crâne de 0 à l'infini ?" %>
       <%= f.submit 'Bouton', class: 'btn btn-primary mb-4' %>
       <% end %>
       <% @reviews.each do |review| %>
-      <p class="card mt-3 mb-3 p-2"> <%= review.user.first_name %> <br> Mon retour de gueule de bois : <%= review.content %> <br> Ma note : <%= review.rating.to_i %> <p>
-        <% end %>
-        <%end %>
+      <div class="col ">
+        <div class="card rounded ml-3 mt-3 mb-3 p-2">
+          <div class= "row">
+           <div class="col-1">
+            <%= cl_image_tag(@apero.user.photo, class:"avatar-large", width: 40, height: 50, crop: :thumb, gravity: :face) %>
+           </div>
+            <div class="col" id="username-review">
+          <%= review.user.first_name %>
+          </div>
+           </div>
+          <p class="mt-2" id="dateshow"><%= review.created_at.strftime("%-d %B %Y %H:%M:%S") %></p>
+          <p><%= review.content %> </p>
+          <p style="font-size: 14px"> Note de ma gueule de bois : <strong> <%= review.rating.to_i %> </strong> </p>
+        </div>
       </div>
-      </div><!-- Button trigger modal -->
+          <% end %>
+        </div>
+    </div>
+  <%end %>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div
-          id="map"
-          style="height: 50vh; width: 12000px; margin-left: 35px; padding-top: 30px; margin-bottom: 30px;"
-          data-markers="<%= @marker.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div
+              id="map"
+              style="height: 50vh; width: 12000px; margin-left: 35px; padding-top: 30px; margin-bottom: 30px;"
+              data-markers="<%= @marker.to_json %>"
+              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
 <!--         <div class="row">
           <div class="col-lg-8">

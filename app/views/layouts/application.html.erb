@@ -27,24 +27,25 @@
 
       <li class="nav-item active">
         <% if user_signed_in? %>
-        <li class="nav-item">
+        <li class="nav-item not-active <%= "active" if params[:controller] == "aperos" && params[:action] == "index" %>">
             <%= link_to aperos_path, class: "nav-link text-white" do %>
-              <p>Trouver un apéro !</p>
+              <p>Trouver un apéro</p>
             <% end %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item not-active <%= "active" if params[:controller] == "bookings" && params[:action] == "my_bookings" %>">
             <%= link_to my_bookings_path, class: "nav-link text-white" do %>
-              <p>Mes apéros !</p>
+              <p>Mes apéros</p>
             <% end %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item not-active <%= "active" if params[:controller] == "aperos" && params[:action] == "new" %>">
             <%= link_to new_apero_path, class: "nav-link text-white" do %>
-              <p>Ajouter un apéro !</p>
+              <p>Ajouter un apéro</p>
             <% end %>
           </li>
+
           <% else %>
 
-            <li class="nav-item active">
+            <li class="nav-item not-active">
             <%= link_to user_session_path, class: "nav-link text-white" do %>
               <p>Connexion</p>
             <% end %>

@@ -35,8 +35,12 @@ class AperosController < ApplicationController
 
   def show
     @apero = Apero.find(params[:id])
+
+    @marker = [ { lat: @apero.latitude,lng: @apero.longitude } ]
+
     @review = Review.new
     @reviews = @apero.reviews
+
   end
 
   def new
@@ -81,7 +85,7 @@ class AperosController < ApplicationController
   private
 
   def apero_params
-    params.require(:apero).permit(:date, :description, :place, :capacity, :title, :photo, :ambiance)
+    params.require(:apero).permit(:date, :description, :place, :capacity, :title, :photo)
   end
 
   def set_apero

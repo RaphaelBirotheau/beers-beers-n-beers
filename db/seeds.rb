@@ -8,6 +8,7 @@ require 'faker'
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     drinks: Faker::Games::Pokemon.name,
+    username: Faker::Games::Pokemon.name,
     password: "password",
   )
   user.save!

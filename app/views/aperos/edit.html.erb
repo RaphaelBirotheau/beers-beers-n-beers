@@ -37,12 +37,6 @@
     </div>
   </div>
 
-  <div class="form-group row">
-    <label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Ambiance</label>
-    <div class="form-group col-sm-10">
-    <%= f.input :ambiance, collection: Apero::AMBIANCES, class: 'form-control', id: 'inputAmbiance', label: false %>
-    </div>
-  </div>
   <div class="col-sm-10">
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>

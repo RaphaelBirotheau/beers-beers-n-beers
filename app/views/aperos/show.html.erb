@@ -68,14 +68,14 @@
       <%= simple_form_for [@apero, @review] do |f|%>
       <%= f.input :content, class: 'form-control', id: 'inputContent', label: false, placeholder: "Tes rares souvenirs de l'apéro ?" %>
       <%= f.input :rating, class: 'form-control', id: 'inputContent', label: false, placeholder: "Evalue ton mal de crâne de 0 à l'infini ?" %>
-      <%= f.submit 'Bouton', class: 'btn btn-primary mb-4' %>
+      <%= f.submit 'Vomi', class: 'btn btn-primary mb-4' %>
       <% end %>
       <% @reviews.each do |review| %>
       <div class="col ">
         <div class="card rounded ml-3 mt-3 mb-3 p-2">
           <div class= "row">
            <div class="col-1">
-            <%= cl_image_tag(@apero.user.photo, class:"avatar-large", width: 40, height: 50, crop: :thumb, gravity: :face) %>
+            <%= cl_image_tag(review.user.photo, class:"avatar-large", width: 40, height: 50, crop: :thumb, gravity: :face) %>
            </div>
             <div class="col" id="username-review">
           <%= review.user.first_name %>

@@ -78,7 +78,7 @@
             <%= cl_image_tag(review.user.photo, class:"avatar-large", width: 40, height: 50, crop: :thumb, gravity: :face) %>
            </div>
             <div class="col" id="username-review">
-          <%= review.user.first_name %>
+          <%= review.user.username %>
           </div>
            </div>
           <p class="mt-2" id="dateshow"><%= review.created_at.strftime("%-d %B %Y %H:%M:%S") %></p>

@@ -1,3 +1,5 @@
+console.log('hfell');
+
 import "bootstrap";
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();
@@ -15,6 +17,8 @@ $(function () {
 })
 
 // Select2 --> to implement tags
-import 'select2/dist/css/select2.css';
 import { initSelect2 } from '../components/init_select2';
+import 'select2/dist/css/select2.css';
+
+
 initSelect2();

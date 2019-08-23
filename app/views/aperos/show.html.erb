@@ -11,7 +11,7 @@
         <div class="card-body">
           <h3>Lieu de l'apéro</h3>
           <p><%= @apero.place %></p>
-          <p><a href=“” data-toggle=“modal” data-target=“#exampleModalCenter”>voir sur la map</a></p>
+          <p><a href="#" data-toggle="modal" data-target="#exampleModalCenter">voir sur la map</a></p>
           <h3>Description de l'apéro</h3>
           <p><%= @apero.description %></p>
         </div>
@@ -61,22 +61,22 @@
 
 
   <% if Time.now > @apero.date %>
-  <div class="row mt-5">
-    <div class="col">
-      <h4>Alors t'as la gueule de bois ???</h4>
-      <%= simple_form_for [@apero, @review] do |f|%>
-      <%= f.input :content, class: 'form-control', id: 'inputContent', label: false, placeholder: "Tes rares souvenirs de l'apéro ?" %>
-      <%= f.input :rating, class: 'form-control', id: 'inputContent', label: false, placeholder: "Ton mal de crâne de 0 à l'infini ?" %>
-      <%= f.submit 'Bouton', class: 'btn btn-primary mb-4' %>
-      <% end %>
-      <% @reviews.each do |review| %>
-      <p class="card mt-3 mb-3 p-2"> <%= review.user.first_name %> <br> Mon retour de gueule de bois : <%= review.content %> <br> Ma note : <%= review.rating.to_i %> <p>
+    <div class="row mt-5">
+      <div class="col">
+        <h4>Alors t'as la gueule de bois ???</h4>
+        <%= simple_form_for [@apero, @review] do |f|%>
+          <%= f.input :content, class: 'form-control', id: 'inputContent', label: false, placeholder: "Tes rares souvenirs de l'apéro ?" %>
+          <%= f.input :rating, class: 'form-control', id: 'inputContent', label: false, placeholder: "Ton mal de crâne de 0 à l'infini ?" %>
+          <%= f.submit 'Bouton', class: 'btn btn-primary mb-4' %>
         <% end %>
-        <%end %>
+        <% @reviews.each do |review| %>
+          <p class="card mt-3 mb-3 p-2"> <%= review.user.first_name %> <br> Mon retour de gueule de bois : <%= review.content %> <br> Ma note : <%= review.rating.to_i %> </p>
+        <% end %>
       </div>
-      </div><!-- Button trigger modal -->
+    </div>
+  <% end %><!-- Button trigger modal -->
+</div>
 
-<!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -91,6 +91,8 @@
     </div>
   </div>
 </div>
+<!-- Modal -->
+
 
 <!--         <div class="row">
           <div class="col-lg-8">
@@ -99,3 +101,4 @@
             </div>
           </div>
         </div>
+-->

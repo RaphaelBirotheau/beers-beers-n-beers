@@ -13,21 +13,27 @@
       <div class="col-12 card-apero mt-3 mx-5" <% link_to "apero_path(@apero)" %>>
         <!-- mettre ici le code Ruby pour import des images par apéro -->
         <img src="<%= apero.photo %>" />
-        <div class="card-apero-infos">
-          <h1><%= apero.title %></h1>
-          <p><strong>Date : <%= apero.date %></strong></p>
-          <p><%= apero.description %></p>
+        <div class="card-apero-infos d-flex">
+          <div class="card-apero-infos-left" style="width: 74%;">
+            <h1><%= apero.title %></h1>
+            <p><strong><%= l(apero.date, format: ' %A %e %b, à %kh%M') %>.</strong></p>
+            <p style="color: black;"><%= apero.description %></p>
+          </div>
+          <div class="card-apero-infos-right d-flex" style="align-items: flex-end; padding-bottom: 10px;">
+            <small>organisé par <%= apero.user.first_name %></small>
+          </div>
         </div>
-      </div>
+        </div>
       <% end %>
     <% end %>
-  </div>
+      </div>
   <div
   id="map"
   style="width: 50%;
   height: 100vh;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
 </div>
 

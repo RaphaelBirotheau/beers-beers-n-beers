@@ -1,16 +1,6 @@
 class AperosController < ApplicationController
   def index
-    if params[:queri].present?
-      @aperos = Apero.near(params[:queri],5).geocoded
-    # @aperos = Apero.geocoded
-      @markers = @aperos.map do |apero|
-      {
-        lat: apero.latitude,
-        lng: apero.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { apero: apero })
-      }
-      end
-    elsif params[:query].present?
+    if params[:query].present?
       @aperos = Apero.global_search(params[:query]).geocoded
     # @aperos = Apero.geocoded
       @markers = @aperos.map do |apero|

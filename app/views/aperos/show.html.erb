@@ -20,7 +20,7 @@
 
 
     <div class="col">
-      <div class="card">
+      <div class="card pb-4">
         <div class="card-body d-flex justify-content-between">
           <div class="pic-pochtron">
             <%= cl_image_tag @apero.user.photo %>
@@ -61,21 +61,37 @@
 
 
   <% if Time.now > @apero.date %>
-    <div class="row mt-5">
-      <div class="col">
-        <h4>Alors t'as la gueule de bois ???</h4>
-        <%= simple_form_for [@apero, @review] do |f|%>
-          <%= f.input :content, class: 'form-control', id: 'inputContent', label: false, placeholder: "Tes rares souvenirs de l'apéro ?" %>
-          <%= f.input :rating, class: 'form-control', id: 'inputContent', label: false, placeholder: "Ton mal de crâne de 0 à l'infini ?" %>
-          <%= f.submit 'Bouton', class: 'btn btn-primary mb-4' %>
-        <% end %>
-        <% @reviews.each do |review| %>
-          <p class="card mt-3 mb-3 p-2"> <%= review.user.first_name %> <br> Mon retour de gueule de bois : <%= review.content %> <br> Ma note : <%= review.rating.to_i %> </p>
-        <% end %>
+  <div class="row mt-5">
+    <div class="col">
+      <h4>Gueule de bois</h4>
+      <%= simple_form_for [@apero, @review] do |f|%>
+      <%= f.input :content, class: 'form-control', id: 'inputContent', label: false, placeholder: "Tes rares souvenirs de l'apéro ?" %>
+      <%= f.input :rating, class: 'form-control', id: 'inputContent', label: false, placeholder: "Evalue ton mal de crâne de 0 à l'infini ?" %>
+      <%= f.submit 'Bouton', class: 'btn btn-primary mb-4' %>
+      <% end %>
+      <% @reviews.each do |review| %>
+      <div class="col ">
+        <div class="card rounded ml-3 mt-3 mb-3 p-2">
+          <div class= "row">
+           <div class="col-1">
+            <%= cl_image_tag(@apero.user.photo, class:"avatar-large", width: 40, height: 50, crop: :thumb, gravity: :face) %>
+           </div>
+            <div class="col" id="username-review">
+          <%= review.user.first_name %>
+          </div>
+           </div>
+          <p class="mt-2" id="dateshow"><%= review.created_at.strftime("%-d %B %Y %H:%M:%S") %></p>
+          <p><%= review.content %> </p>
+          <p style="font-size: 14px"> Note de ma gueule de bois : <strong> <%= review.rating.to_i %> </strong> </p>
+        </div>
       </div>
+          <% end %>
+        </div>
     </div>
-  <% end %><!-- Button trigger modal -->
-</div>
+  <%end %>
+
+
+
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -91,14 +107,6 @@
     </div>
   </div>
 </div>
-<!-- Modal -->
 
 
-<!--         <div class="row">
-          <div class="col-lg-8">
-            <div>
-             <p><a href="http://estcequecestbientotlapero.fr/" target="_blank">Est-ce que c'est bientôt l'heure de l'apéro ?</a></p>
-            </div>
-          </div>
-        </div>
--->
+

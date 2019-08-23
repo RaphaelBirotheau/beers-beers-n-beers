@@ -15,7 +15,7 @@
         <img src="<%= booking.apero.photo %>" />
         <div class="card-apero-infos">
           <h1><%= booking.apero.title %></h1>
-          <p><strong>participants prévus (à la louche) : </strong><%= booking.apero.capacity %></p>
+          <p><strong>participants prévus (à la louche) : </strong><%= booking.apero.capacity.to_i %></p>
           <p><%= booking.apero.description %></p>
         </div>
       </div>

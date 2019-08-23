@@ -69,6 +69,15 @@
   text-decoration: none !important;
 }
 
+.pic-pochtron img {
+  width: 155px;
+}
+
+.card-liste-pochtrons {
+    background: #fff0;
+    border: none;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards-home {

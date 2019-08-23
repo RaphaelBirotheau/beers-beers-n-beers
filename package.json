@@ -8,6 +8,7 @@
     "jquery": "^3.4.1",
     "mapbox-gl": "^1.2.1",
     "popper.js": "^1.15.0",
+    "select2": "^4.0.9",
     "typed.js": "^2.0.10"
   },
   "devDependencies": {

@@ -1,100 +1,79 @@
 
-    <div class="banner" style="background-image: url(<%= @apero.photo %>)">
-      <div class="container" >
-        <h1><%= @apero.title %> !</h1>
-        <h3><%=l(@apero.date, format: ' %A %e %b, à %kh%M')%></h3>
+<div class="banner mb-5" style="background-image: url(<%= @apero.photo %>)">
+  <h1 class="pt-5 pl-5"><%= @apero.title %> !</h1>
+  <h3 class="pl-5"><%=l(@apero.date, format: ' %A %e %b, à %kh%M')%></h3>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3>Lieu de l'apéro</h3>
+          <p><%= @apero.place %></p>
+          <h3>Ambiance</h3>
+          <p><%= @apero.ambiance %></p>
+          <h3>Description de l'apéro</h3>
+          <p><%= @apero.description %></p>
+        </div>
       </div>
     </div>
 
-      <div class="container-desc">
-        <div class="rows">
 
-        <div class="row">
-          <div class="col-md-10">
-            <h4>Lieu de l'apéro</h4>
-            <p><%= @apero.place %></p>
-            <p><a href="" data-toggle="modal" data-target="#exampleModalCenter">voir sur la map</a></p>
+    <div class="col">
+      <div class="card">
+        <div class="card-body d-flex justify-content-between">
+          <div class="pic-pochtron">
+            <%= cl_image_tag @apero.user.photo %>
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-10">
-
-
-            <h3>Description de l'apéro</h3>
-            <p><%= @apero.description %></p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-10">
-            <p><a href="http://estcequecestbientotlapero.fr/" target="_blank">Est-ce que c'est bientôt l'heure de l'apéro ?</a></p>
-          </div>
-        </div>
-      </div>
-
-        <div class="col-md-6">
-        <div class="card mb-6" style="max-width: 680px;">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <%= cl_image_tag @apero.user.default_photo, :width=>150, :height=>150, :crop=>"fill", gravity: "face", class: "card-img" %>
-            </div>
-
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title"><%= @apero.user.first_name %>, pochtron en chef</h5>
-                <p class="card-text"></p>
-                <p class="card-text"><small class="text-muted">Dernière mise à jour le <%= l(@apero.updated_at, format: '%A %e %b')  %></small></p>
-              </div>
-            </div>
+          <div class="text-pochtron">
+            <h5 class="card-title"><%= @apero.user.first_name %>, pochtron en chef</h5>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
           </div>
         </div>
 
         <% if current_user == @apero.user %>
-          <div class="d-flex justify-content-between mt-3">
+        <div class="d-flex justify-content-between mx-4">
           <%= link_to "Modifier l'apéro", edit_apero_path(@apero), class: "btn btn-outline-primary mr-5" %>
           <%= link_to "Supprimer l'apéro", apero_path(@apero), class: "btn btn-outline-danger", method: :delete, data: { confirm: "T'es vraiment sûr de vouloir supprimer cette belle occasion?" } %>
-          </div>
+        </div>
         <% else %>
-        <% if Booking.where(user: current_user, apero: @apero).any? %>
-            <p></p>
+        <% if Booking.where(user: current_user, apero: @apero) %>
         <% elsif user_signed_in? %>
-          <%= link_to "Participer à l'apéro de #{@apero.user.first_name}", apero_bookings_path(@apero), method: :post, class: "btn btn-flat mt-5" %>
+        <%= link_to "Participer à l'apéro de #{@apero.user.first_name}", apero_bookings_path(@apero), method: :post, class: "btn btn-flat" %>
         <% else %>
-          <%= link_to "Inscris toi pour participer !", new_user_registration_path, class: "btn btn-flat mt-5" %>
-         <% end %>
+        <%= link_to "Inscris toi pour participer !", new_user_registration_path, class: "btn btn-flat" %>
         <% end %>
-          <br>
-          <br>
-        <h4>Pochtrons inscrits :</h4>
+        <% end %>
+      </div>
+
+      <div class="card card-liste-pochtrons card-body d-flex justify-content-between">
+        <p>Pochtrons inscrits :</p>
         <div class="bookphotos">
           <% @apero.bookings.each do |booking| %>
           <div class="photo-user">
-            <%= cl_image_tag(booking.user.default_photo, width: 40, height: 40, crop: :thumb, gravity: :face, class:"avatar", data: {toggle:"popover", content: booking.user.username, trigger: "hover"}, id:'navbarDropdown') %>
-             </div>
+            <%= cl_image_tag(booking.user.photo, width: 40, height: 40, crop: :thumb, gravity: :face, class:"avatar", data: {toggle:"popover", content: booking.user.username, trigger: "hover"}, id:'navbarDropdown') %>
+          </div>
           <% end %>
         </div>
       </div>
     </div>
-          </div>
-      </div>
+  </div>
 
-    <div class="container">
-      <% if Time.now > @apero.date %>
-      <div class="form-group row">
-        <label for="inputDescription" class="col-sm-2 col-form-label">Gueule de bois ??</label>
-      <div class="col-sm-10">
-        <%= simple_form_for [@apero, @review] do |f|%>
-          <%= f.input :content, class: 'form-control', id: 'inputContent', label: false, placeholder: 'Alors il était bien cet apéro ???' %>
-          <%= f.input :rating, class: 'form-control', id: 'inputContent', label: false, placeholder: 'Quelle note ?' %>
-          <%= f.submit 'Bouton', class: 'btn btn-primary' %>
-          <% end %>
-          <div class=''>
-          <% @reviews.each do |review| %>
-            <p> <%= @apero.user.first_name %> <br> Mon retour de gueule de bois : <%= review.content %> <br> Ma note : <%= review.rating.to_i %> <p>
-          <% end %>
-          </div>
-        <% end  %>
+
+  <% if Time.now > @apero.date %>
+  <div class="row mt-5">
+    <div class="col">
+      <h4>Alors t'as la gueule de bois ???</h4>
+      <%= simple_form_for [@apero, @review] do |f|%>
+      <%= f.input :content, class: 'form-control', id: 'inputContent', label: false, placeholder: "Tes rares souvenirs de l'apéro ?" %>
+      <%= f.input :rating, class: 'form-control', id: 'inputContent', label: false, placeholder: "Ton mal de crâne de 0 à l'infini ?" %>
+      <%= f.submit 'Bouton', class: 'btn btn-primary mb-4' %>
+      <% end %>
+      <% @reviews.each do |review| %>
+      <p class="card mt-3 mb-3 p-2"> <%= review.user.first_name %> <br> Mon retour de gueule de bois : <%= review.content %> <br> Ma note : <%= review.rating.to_i %> <p>
+        <% end %>
+        <%end %>
       </div>
       </div><!-- Button trigger modal -->
 
@@ -113,3 +92,11 @@
     </div>
   </div>
 </div>
+
+<!--         <div class="row">
+          <div class="col-lg-8">
+            <div>
+             <p><a href="http://estcequecestbientotlapero.fr/" target="_blank">Est-ce que c'est bientôt l'heure de l'apéro ?</a></p>
+            </div>
+          </div>
+        </div>

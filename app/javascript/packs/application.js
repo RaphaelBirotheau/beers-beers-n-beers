@@ -13,3 +13,8 @@ initMapbox();
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
+
+// Select2 --> to implement tags
+import 'select2/dist/css/select2.css';
+import { initSelect2 } from '../components/init_select2';
+initSelect2();

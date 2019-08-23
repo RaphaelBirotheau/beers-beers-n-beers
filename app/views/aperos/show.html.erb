@@ -27,24 +27,25 @@
           </div>
           <div class="text-pochtron">
             <h5 class="card-title"><%= @apero.user.first_name %>, pochtron en chef</h5>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <p class="card-text"><small class="text-muted">Dernière mise à jour le <%=l(@apero.updated_at, format: ' %A %e %b, à %kh%M')%> </small></p>
           </div>
         </div>
-
+      </div>
+      <br>
+      <br>
         <% if current_user == @apero.user %>
         <div class="d-flex justify-content-between mx-4">
           <%= link_to "Modifier l'apéro", edit_apero_path(@apero), class: "btn btn-outline-primary mr-5" %>
           <%= link_to "Supprimer l'apéro", apero_path(@apero), class: "btn btn-outline-danger", method: :delete, data: { confirm: "T'es vraiment sûr de vouloir supprimer cette belle occasion?" } %>
         </div>
         <% else %>
-        <% if Booking.where(user: current_user, apero: @apero) %>
+        <% if Booking.where(user: current_user, apero: @apero).any? %>
         <% elsif user_signed_in? %>
         <%= link_to "Participer à l'apéro de #{@apero.user.first_name}", apero_bookings_path(@apero), method: :post, class: "btn btn-flat" %>
         <% else %>
         <%= link_to "Inscris toi pour participer !", new_user_registration_path, class: "btn btn-flat" %>
         <% end %>
         <% end %>
-      </div>
 
       <div class="card card-liste-pochtrons card-body d-flex justify-content-between">
         <p>Pochtrons inscrits :</p>

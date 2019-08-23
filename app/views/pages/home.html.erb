@@ -3,6 +3,16 @@
       <h3>Bienvenue chez</h3>
       <h1><strong>Pochtrons 🍻</strong></h1>
       <p>Les meilleurs soulards du coin</p>
+  <div class="search">
+    <%= simple_form_for :search, placeholder: 'First Name', url: root_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Trouver mon prochain apéro..." />
+        <button name="button" type="submit" class="btn btn-flat">
+          🍷<span> </span>
+        </button>
+      </div>
+    <% end %>
+  </div>
   </div>
 </div>
 
@@ -20,25 +30,6 @@
   </div>
 </div> -->
 <div class="container-home ">
-  <div class="search">
-  <%= form_tag aperos_path, method: :get do %>
-    <%= text_field_tag :queri,
-      params[:queri],
-      class: "form-control",
-      placeholder: "Chercher par localisation"
-    %>
-    <%= submit_tag "Se la coller pardi 🍻", class: "btn btn-primary" %>
-    <% end %>
-
-  <%= form_tag aperos_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Chercher par mot-clef"
-    %>
-    <%= submit_tag "Se la coller pardi 🍻", class: "btn btn-primary" %>
-    <% end %>
-  </div>
   <div
   id="map"
   style="width: 100%;

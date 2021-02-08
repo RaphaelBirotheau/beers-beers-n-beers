@@ -9,7 +9,7 @@ gem 'rails', '5.2.3'
 gem 'redis'
 gem 'rails-i18n'
 gem 'i18n-country-translations'
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 1.3'
 gem 'cloudinary', '~> 1.9.1'
 
 gem 'autoprefixer-rails'
